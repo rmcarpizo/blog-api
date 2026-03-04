@@ -62,6 +62,7 @@ router.delete('/:id', protect, async (req, res) => {
     }
 
     await Comment.findByIdAndDelete(req.params.id);
+    await Comment.deleteMany({ parentComment: req.params.id })
     res.status(200).json({ message: 'Comment deleted!' });
   } catch (error) {
     res.status(500).json({ message: 'Failed to delete comment', error: error.message });
