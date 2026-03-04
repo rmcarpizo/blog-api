@@ -18,7 +18,7 @@ router.get('/post/:postId', async (req, res) => {
   try {
     const comments = await Comment.find({ post: req.params.postId })
       .populate('author', 'username')
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: 1 });
     res.status(200).json({ comments });
   } catch (error) {
     res.status(500).json({ message: 'Failed to fetch comments', error: error.message });
