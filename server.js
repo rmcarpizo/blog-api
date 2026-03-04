@@ -10,7 +10,7 @@ connectDB();
 
 // Middlewares
 app.use(cors({
-  origin: 'https://artitcle-blog.vercel.app',
+  origin: 'https://blog-client-six-alpha.vercel.app',
   credentials: true,
 }));
 app.use(express.json());
